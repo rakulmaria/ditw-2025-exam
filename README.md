@@ -45,31 +45,23 @@ this will output csv files for each channel with all the dates into one, addtion
 This stage have multiple steps.
 
 ### Regex annotation
-before running this notebook 
-[extracting_host_from_description]{scripts/annotation/extracting_host_from_description.ipynb}
+before running this notebook make sure you have the csv files from the **Gender enrichment** point.
+using the note book [extracting_host_from_description]{scripts/annotation/extracting_host_from_description.ipynb} will use a regex and extract the host name from the program description.
+this will change the data file adding the host names, but it will also output a file with all the progams where no host were found.
+
+### AI_annotation
+using the file generated from the previos step the [AI_annotation.py]{scripts/annotation/AI_annotation.py} will use multiple ai modles to find radio hosts, and will output a file with the found radio host and the description.
+```bash
+python run AI_annotation.py
+```
 
 
-run scrapper 
-    outputs raw scraped data from all channels from dr
+### Inserting the annotations
+finaly running the notebook [inserting_hosts_into_dataset]{scripts/annotation/inserting_hosts_into_dataset.ipynb} it will take the file from the last step and update the host coloumns in full channel data files.
 
-run gender enrich
-    input the raw scraped data via data_preprocessing.py
-    outputs a structured version of the scraped data now with addtional information from MusicBrainz
-
-run extracting_host_from_description.ipynb
-    input the structured version of the data
-    outputs a files where host are added by a regex
-    outputs a episode_descriptions_for_annotation with all description where no hosts where found
-
-run AI_annotation.py
-    input episode_descriptions_for_annotation.csv wich all episode where we dindt find hosts.
-    outputs a file where ai annotated host from descriptions radio_programs_annotated-ai.csv
-
-run validator
+## Final
+following the steps above you should have csv files similar to ours but with the time periode of the data that you scraped.
 
 
-run inserting_hosts_into_dataset.ipynb
-    input radio_programs_annotated-ai.csv 
-    input the big datafiles
-    output the final data files with all the hosts annotated by ai
+
 
