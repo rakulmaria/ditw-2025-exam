@@ -4,7 +4,7 @@ This project was a part of the final exam for [Data in the Wild: Wrangling and V
 
 ## Package management
 
-[uv](https://docs.astral.sh/uv/) is used for package management. For setting up the project, please install uv by following the [installation guide](https://docs.astral.sh/uv/getting-started/installation/). After installing, packages can be synced using the following command:
+[`uv`](https://docs.astral.sh/uv/) is used for package management. For setting up the project, please install uv by following the [installation guide](https://docs.astral.sh/uv/getting-started/installation/). After installing, packages can be synced using the following command:
 
 ```console
 uv sync
