@@ -5,14 +5,29 @@ This project was a part of the final exam for [Data in the Wild: Wrangling and V
 ## Repo Structure
 
 ```text
-DITW-2025-EXAM/
-data/
-├── s 
-scripts/
-├── annotation/ 
-web_scraper/
-├── dr_scraper.py
-├── scrape_all_channels.py
+ditw-2025-exam/
+├── README.md
+├── pyproject.toml
+├── uv.lock
+├── data/
+│   ├── p3_2024.csv
+│   ├── p3_oct_2025.csv
+│   ├── p4_2024.csv
+│   ├── p4_oct_2025.csv
+│   ├── p6_2024.csv
+│   └── p6_oct_2025.csv
+├── scripts/
+│   ├── annotation/
+│   │   ├── AI_annotation.py
+│   │   ├── extracting_host_from_description.ipynb
+│   │   ├── inserting_hosts_into_dataset.ipynb
+│   │   └── validator.py
+│   └── scraped_processing/
+│       ├── data_preprocessing.py
+│       └── gender_enrichment.ipynb
+└── web_scraper/
+    ├── dr_scraper.py
+    └── scrape_all_channels.py
 ```
 
 
@@ -40,6 +55,9 @@ It will output a csv file for each channel with the date it was scraped from.
 Using the note book [gender_enrichment]{scripts/scraped_processing/gender_enrichment.ipynb} it will take the scrapeded data compile it into a single csv file for each chancele and query MusicBrainz api for the gender of the artist.
 Note that you might need to modify the notebook or [data_preprocessing]{scripts/scraped_processing/data_preprocessing.py}
 this will output csv files for each channel with all the dates into one, addtionaly a new gender coloum have been added to the data.
+
+## Experiment
+To regenerate all the plots, run the experiments.ipynb file. Note that you will need all of the 2024 datasets to do so.
 
 ## Annotation of the host names
 This stage have multiple steps.
