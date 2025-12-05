@@ -39,46 +39,46 @@ ditw-2025-exam/
 uv sync
 ```
 
-# How to Run and use
+# How to Run and Use
 
-our project consists of a few scripts and notebooks to collect, clean and process the data into the final csv files shown in the data folder. **Note that some of the scripts might need slightly change in file names or paths to run without casuing errors or destorying the final data sets in data.**
+Our project consists of a few scripts and notebooks to collect, clean and process the data into the final CSV files shown in the data folder. **Note that some of the scripts might need slight changes in file names or paths to run without causing errors or destroying the final data sets in data.**
 
-## Scrape data
-to begin scraping the data from dr using the [scrape_all_channelse](web_scraper/scrape_all_channelse.py). it will scrappe the data for all radio channels avalible on dr radio for a specific day. To use the scrapper run it use the following command and modify the data as needed. 
+## Scrape Data
+To begin scraping the data from DR, use the [scrape_all_channels](web_scraper/scrape_all_channels.py) script. It will scrape the data for all radio channels available on DR Radio for a specific day. To use the scraper, run the following command and modify the date as needed:
 ```bash
-python -u run scrape_all_channelse.py --date 2025-10-30
+python -u run scrape_all_channels.py --date 2025-10-30
 ```
-It will output a csv file for each channel with the date it was scraped from.
-**Note that at 5/12/2025 dr radio only have data publicly avalible one week from the current date**
+It will output a CSV file for each channel with the date it was scraped from.
+**Note that as of 5/12/2025, DR Radio only has data publicly available one week from the current date.**
 
-## Gender enrichment
-Using the note book [gender_enrichment]{scripts/scraped_processing/gender_enrichment.ipynb} it will take the scrapeded data compile it into a single csv file for each chancele and query MusicBrainz api for the gender of the artist.
-Note that you might need to modify the notebook or [data_preprocessing]{scripts/scraped_processing/data_preprocessing.py}
-this will output csv files for each channel with all the dates into one, addtionaly a new gender coloum have been added to the data.
+## Gender Enrichment
+Using the notebook [gender_enrichment](scripts/scraped_processing/gender_enrichment.ipynb), it will take the scraped data and compile it into a single CSV file for each channel and query the MusicBrainz API for the gender of the artist.
+Note that you might need to modify the notebook or [data_preprocessing](scripts/scraped_processing/data_preprocessing.py).
+This will output CSV files for each channel with all the dates into one. Additionally, a new gender column has been added to the data.
 
 ## Experiment
 To regenerate all the plots, run the experiments.ipynb file. Note that you will need all of the 2024 datasets to do so.
 
-## Annotation of the host names
-This stage have multiple steps.
+## Annotation of the Host Names
+This stage has multiple steps.
 
-### Regex annotation
-before running this notebook make sure you have the csv files from the **Gender enrichment** point.
-using the note book [extracting_host_from_description]{scripts/annotation/extracting_host_from_description.ipynb} will use a regex and extract the host name from the program description.
-this will change the data file adding the host names, but it will also output a file with all the progams where no host were found.
+### Regex Annotation
+Before running this notebook, make sure you have the CSV files from the **Gender Enrichment** step.
+Using the notebook [extracting_host_from_description](scripts/annotation/extracting_host_from_description.ipynb) will use a regex and extract the host name from the program description.
+This will change the data file by adding the host names, but it will also output a file with all the programs where no host was found.
 
-### AI_annotation
-using the file generated from the previos step the [AI_annotation.py]{scripts/annotation/AI_annotation.py} will use multiple ai modles to find radio hosts, and will output a file with the found radio host and the description.
+### AI Annotation
+Using the file generated from the previous step, the [AI_annotation.py](scripts/annotation/AI_annotation.py) script will use multiple AI models to find radio hosts and will output a file with the found radio hosts and their descriptions.
 ```bash
 python run AI_annotation.py
 ```
 
 
-### Inserting the annotations
-finaly running the notebook [inserting_hosts_into_dataset]{scripts/annotation/inserting_hosts_into_dataset.ipynb} it will take the file from the last step and update the host coloumns in full channel data files.
+### Inserting the Annotations
+Finally, running the notebook [inserting_hosts_into_dataset](scripts/annotation/inserting_hosts_into_dataset.ipynb) will take the file from the last step and update the host columns in the full channel data files.
 
 ## Final
-following the steps above you should have csv files similar to ours but with the time periode of the data that you scraped.
+Following the steps above, you should have CSV files similar to ours but with the time period of the data that you scraped.
 
 
 
