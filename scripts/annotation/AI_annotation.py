@@ -14,8 +14,8 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # --- PATHS ---
-INPUT_CSV = "data/enriched_with_hosts/episode_descriptions_for_annotation.csv"
-OUTPUT_CSV = "data/enriched_with_hosts/radio_programs_annotated-ai.csv"
+INPUT_CSV = "data/episode_descriptions_for_annotation.csv"
+OUTPUT_CSV = "data/radio_programs_annotated-ai.csv"
 
 DESCRIPTION_COLUMN = "episodeDescription"
 BATCH_SIZE = 10
