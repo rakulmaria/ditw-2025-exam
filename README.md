@@ -83,7 +83,14 @@ This will change the data file by adding the host names, but it will also output
 
 ### AI Annotation
 
-Using the file generated from the previous step, the [AI_annotation.py](scripts/annotation/AI_annotation.py) script will use multiple AI models to find radio hosts and will output a file with the found radio hosts and their descriptions. To run the `AI_annotation.py` run the following command from the root of the project.
+Using the file generated from the previous step, the [AI_annotation.py](scripts/annotation/AI_annotation.py) script will use multiple AI models to find radio hosts and will output a file with the found radio hosts and their descriptions. In order for this script to work, you will need `API_KEYS` to each of the AI used. These `API_KEYS` need to be configured in your environment:
+
+```python
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+```
+
+To run the `AI_annotation.py` run the following command from the root of the project.
 
 ```bash
 python scripts/annotation/AI_annotation.py 
