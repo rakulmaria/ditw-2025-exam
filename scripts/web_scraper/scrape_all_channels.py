@@ -28,7 +28,7 @@ def main():
 
     data_dir = Path("data")
     data_dir.mkdir(parents=True, exist_ok=True)
-    scraper = Path(__file__).with_name("scrapper.py")
+    scraper = Path(__file__).with_name("dr_scraper.py")
     if not scraper.exists():
         print(
             f"ERROR: {scraper.name} not found next to this file.", file=sys.stderr)
