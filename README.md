@@ -10,6 +10,8 @@ ditw-2025-exam/
 ├── pyproject.toml
 ├── uv.lock
 ├── data/
+│   ├── helpers/
+│   │   ├── dataset_from_DR_minimal.zip
 │   ├── p3_2024.csv
 │   ├── p3_oct_2025.csv
 │   ├── p4_2024.csv
